@@ -1,0 +1,45 @@
+/* app.css */
+
+/* Navbar customization */
+.navbar {
+  background-color: #ac252a; /* Red dark color */
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important; /* White text for visibility */
+}
+
+.navbar .nav-link:hover {
+  color: #000000 !important; /* Gold color on hover */
+}
+
+/* Button customization */
+.btn-outline-light {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #ac252a; /* Invert colors on hover */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  background-color: #ac252a; /* Match the color of navbar */
+}
+
+.dropdown-item {
+  color: #ffffff !important;
+}
+
+.dropdown-item:hover {
+  background-color: #ffd700;
+  color: #ac252a !important;
+}
+
+/* Body background */
+body {
+  background-color: #f8f9fa; /* Light background for contrast */
+}
