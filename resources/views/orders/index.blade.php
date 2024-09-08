@@ -4,11 +4,12 @@
 <div class="container mt-4">
     <h1 class="mb-4">Daftar Order</h1>
 
-    <!-- Tombol Tambah Order dan Download PDF -->
+    <!-- Tombol Tambah Order dan Download PDF/Excel -->
     <div class="d-flex justify-content-between mb-3">
         <div>
             <a href="{{ route('orders.create') }}" class="btn btn-primary">Tambah Order</a>
             <a href="{{ route('orders.pdf') }}" class="btn btn-secondary">Download PDF</a>
+            <a href="{{ route('orders.excel') }}" class="btn btn-success">Download Excel</a>
         </div>
         <div>
             <select id="filter" class="form-control">

@@ -4,6 +4,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
+use App\Exports\OrdersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 // Route untuk mengunduh PDF daftar order
 Route::get('pdf/orders', [PDFController::class, 'generatePDF'])->name('orders.pdf');
@@ -39,7 +42,10 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::patch('orders/{id}/selesai', [OrderController::class, 'selesai'])->name('orders.selesai');
     Route::get('orders/{id}/print', [OrderController::class, 'print'])->name('orders.print');
 
-
+    Route::get('orders/excel', function () {
+        return Excel::download(new OrdersExport, 'orders.xlsx');
+    })->name('orders.excel');
+    
 
     // Hapus order
     Route::delete('orders/{order_number}', [OrderController::class, 'destroy'])->name('orders.destroy');
