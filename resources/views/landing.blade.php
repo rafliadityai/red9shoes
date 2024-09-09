@@ -77,7 +77,7 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2">
-                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Basic Level Shoes" class="img-fluid level-basic" style="width: 40px; height: 40px;">
+                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Basic Level Shoes" class="img-fluid level-basic" style="width: 55px; height: 55px;">
                               </div>
                                                                                    
                             <h3 class="h4 mb-2">Easy</h3>
@@ -88,7 +88,7 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2">
-                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Medium Level Shoes" class="img-fluid level-medium" style="width: 40px; height: 40px;">
+                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Medium Level Shoes" class="img-fluid level-medium" style="width: 55px; height: 55px;">
                             </div>
                             <h3 class="h4 mb-2">Medium</h3>
                             <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
@@ -97,7 +97,7 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2">
-                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Hard Level Shoes" class="img-fluid level-hard" style="width: 40px; height: 40px;">
+                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Hard Level Shoes" class="img-fluid level-hard" style="width: 55px; height: 55px;">
                             </div>
                             <h3 class="h4 mb-2">Hard</h3>
                             <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
@@ -105,8 +105,8 @@
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Made with Love</h3>
+                            <div class="mb-2"><i class="bi-tools fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2">Repair</h3>
                             <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
                         </div>
                     </div>
