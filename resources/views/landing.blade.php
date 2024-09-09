@@ -82,6 +82,7 @@
                                                                                    
                             <h3 class="h4 mb-2">Easy</h3>
                             <p class="text-muted mb-0"> Pembersihan menyeluruh bagian luar dan dalam sepatu.</p>
+                            <p></p>
                           <p class="text-muted mb-0">Menggunakan bahan pembersih ramah lingkungan yang aman untuk semua jenis bahan.</p>  
                         </div>
                     </div>
