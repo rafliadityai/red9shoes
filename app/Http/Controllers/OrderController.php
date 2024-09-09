@@ -10,56 +10,63 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class OrderController extends Controller
 {
     public function index(Request $request)
-    {
-        $filter = $request->query('filter');
-        $search = $request->query('search');
-        $sortField = $request->query('sort', 'tanggal_masuk'); // Default sorting field
-        $sortOrder = $request->query('order', 'desc'); // Default sorting order
-        $perPage = $request->query('per_page', 99999); // Default 10 data per page
+{
+    // Ambil parameter query dari URL
+    $filter = $request->query('filter');
+    $search = $request->query('search');
+    $sortField = $request->query('sort', 'tanggal_masuk'); // Kolom sorting default
+    $sortOrder = $request->query('order', 'desc'); // Urutan sorting default
+    $perPage = $request->query('per_page', 99999); // Default menampilkan semua data
 
-        $validSortFields = ['id_transaksi', 'tanggal_masuk', 'keluar_sepatu', 'jenis_sepatu'];
-        $validSortOrders = ['asc', 'desc'];
+    // Tentukan kolom dan urutan sorting yang valid
+    $validSortFields = ['id_transaksi', 'tanggal_masuk', 'keluar_sepatu', 'jenis_sepatu'];
+    $validSortOrders = ['asc', 'desc'];
 
-        if (!in_array($sortField, $validSortFields)) {
-            $sortField = 'tanggal_masuk';
-        }
-
-        if (!in_array($sortOrder, $validSortOrders)) {
-            $sortOrder = 'desc';
-        }
-
-        $query = Order::query();
-
-        // Apply filters
-        if ($filter == 'daily') {
-            $query->whereDate('tanggal_masuk', Carbon::today());
-        } elseif ($filter == 'weekly') {
-            $query->whereBetween('tanggal_masuk', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
-        } elseif ($filter == 'monthly') {
-            $query->whereMonth('tanggal_masuk', Carbon::now()->month);
-        }
-
-        // Apply search
-        if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('nama_client', 'like', "%{$search}%")
-                  ->orWhere('merk_sepatu', 'like', "%{$search}%")
-                  ->orWhere('jenis_sepatu', 'like', "%{$search}%");
-            });
-        }
-
-        // Apply sorting
-        $query->orderBy($sortField, $sortOrder);
-
-        // Handle per_page and pagination
-        if ($perPage == 'all') {
-            $orders = $query->get(); // Get all orders without pagination
-        } else {
-            $orders = $query->paginate($perPage);
-        }
-
-        return view('orders.index', compact('orders', 'search', 'filter', 'sortField', 'sortOrder'));
+    // Validasi input sorting field dan order
+    if (!in_array($sortField, $validSortFields)) {
+        $sortField = 'tanggal_masuk';
     }
+
+    if (!in_array($sortOrder, $validSortOrders)) {
+        $sortOrder = 'desc';
+    }
+
+    // Mulai query dari model Order
+    $query = Order::query();
+
+    // Terapkan filter
+    if ($filter == 'daily') {
+        $query->whereDate('tanggal_masuk', Carbon::today());
+    } elseif ($filter == 'weekly') {
+        $query->whereBetween('tanggal_masuk', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
+    } elseif ($filter == 'monthly') {
+        $query->whereMonth('tanggal_masuk', Carbon::now()->month)
+              ->whereYear('tanggal_masuk', Carbon::now()->year); // Tambahkan tahun untuk filter bulanan
+    }
+
+    // Terapkan pencarian
+    if ($search) {
+        $query->where(function ($q) use ($search) {
+            $q->where('nama_client', 'like', "%{$search}%")
+              ->orWhere('merk_sepatu', 'like', "%{$search}%")
+              ->orWhere('jenis_sepatu', 'like', "%{$search}%");
+        });
+    }
+
+    // Terapkan sorting
+    $query->orderBy($sortField, $sortOrder);
+
+    // Penanganan per_page dan pagination
+    if ($perPage == 'all') {
+        $orders = $query->get(); // Mendapatkan semua data tanpa pagination
+    } else {
+        $orders = $query->paginate($perPage);
+    }
+
+    // Return ke view dengan data yang diambil
+    return view('orders.index', compact('orders', 'search', 'filter', 'sortField', 'sortOrder'));
+}
+
 
     public function showDetail($id)
     {

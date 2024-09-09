@@ -67,24 +67,24 @@
                             <td class="d-flex flex-column justify-content-between align-items-center">
                                 <div class="d-flex flex-row justify-content-center mb-2">
                                     <!-- Tombol untuk Mencetak Struk -->
-                                    <button type="button" class="btn btn-info btn-icon" onclick="printInvoice('{{ $order->id }}')" title="Print Struk">
+                                    <button type="button" class="btn btn-info btn-icon" onclick="printInvoice('{{ $order->id_transaksi }}')" title="Print Struk">
                                         Print
                                     </button>
 
                                     <!-- Tombol untuk Menandai Selesai (jika belum selesai) -->
                                     @if (!$order->keluar_sepatu)
-                                        <button type="button" class="btn btn-success btn-icon" data-toggle="modal" data-target="#selesaiModal" data-id="{{ $order->id }}" title="Tandai Selesai">
+                                        <button type="button" class="btn btn-success btn-icon" data-toggle="modal" data-target="#selesaiModal" data-id="{{ $order->id_transaksi }}" title="Tandai Selesai">
                                             Selesai
                                         </button>
                                     @endif
                                 </div>
                                 <div class="d-flex flex-row justify-content-center">
                                     <!-- Tombol Edit -->
-                                    <a href="{{ route('orders.edit', $order->id) }}" class="btn btn-warning btn-icon mr-1" title="Edit">
+                                    <a href="{{ route('orders.edit', $order->id_transaksi) }}" class="btn btn-warning btn-icon mr-1" title="Edit">
                                         Edit
                                     </a>
                                     <!-- Tombol Hapus -->
-                                    <form action="{{ route('orders.destroy', $order->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('orders.destroy', $order->id_transaksi) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-icon" onclick="return confirm('Apakah Anda yakin?')" title="Hapus">
@@ -115,7 +115,7 @@
                 Apakah Anda yakin ingin menandai order ini sebagai selesai?
             </div>
             <div class="modal-footer">
-                <form action="{{ route('orders.selesai', $order->id) }}" method="POST">
+                <form id="selesaiForm" method="POST">
                     @csrf
                     @method('PATCH')
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -145,7 +145,7 @@
         var button = $(event.relatedTarget);
         var orderId = button.data('id');
         var modal = $(this);
-        modal.find('form').attr('action', '/orders/' + orderId + '/selesai');
+        modal.find('#selesaiForm').attr('action', '/orders/' + orderId + '/selesai');
     });
 
     $('#filter').on('change', function() {

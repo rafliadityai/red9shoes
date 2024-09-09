@@ -8,6 +8,10 @@
         <title>Red9 Shoes Laundry</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -15,6 +19,7 @@
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
@@ -53,9 +58,11 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">We've got what you need!</h2>
+                        <h2 class="text-white mt-0">Keunggulan Kami</h2>
                         <hr class="divider divider-light" />
-                        <p class="text-white-75 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
+                        <p class="text-white-75 mb-4"> <b>Bahan Pembersih Aman:</b> Produk pembersih khusus yang tidak merusak bahan sepatu.</p>
+                        <p class="text-white-75 mb-4"> <b>Teknisi Berpengalaman:</b> Ahli perawatan sepatu dengan pengalaman bertahun-tahun.</p>
+                        <p class="text-white-75 mb-4"><b>Hasil Maksimal:</b> Garansi sepatu bersih, wangi, dan tampak seperti baru</p>
                         <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
                     </div>
                 </div>
@@ -69,22 +76,30 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                            <div class="mb-2">
+                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Basic Level Shoes" class="img-fluid level-basic" style="width: 40px; height: 40px;">
+                              </div>
+                                                                                   
+                            <h3 class="h4 mb-2">Easy</h3>
+                            <p class="text-muted mb-0"> Pembersihan menyeluruh bagian luar dan dalam sepatu.</p>
+                          <p class="text-muted mb-0">Menggunakan bahan pembersih ramah lingkungan yang aman untuk semua jenis bahan.</p>  
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Up to Date</h3>
+                            <div class="mb-2">
+                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Medium Level Shoes" class="img-fluid level-medium" style="width: 40px; height: 40px;">
+                            </div>
+                            <h3 class="h4 mb-2">Medium</h3>
                             <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
+                            <div class="mb-2">
+                                <img src="{{ asset('assets/img/shoes.svg') }}" alt="Hard Level Shoes" class="img-fluid level-hard" style="width: 40px; height: 40px;">
+                            </div>
+                            <h3 class="h4 mb-2">Hard</h3>
                             <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
                         </div>
                     </div>
