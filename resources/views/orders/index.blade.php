@@ -12,42 +12,42 @@
             <a href="{{ route('orders.pdf') }}" class="btn btn-secondary">Download PDF</a>
             <a href="{{ route('orders.excel') }}" class="btn btn-success">Download Excel</a>
         </div>
+        <div class="col-md-6">
+            <form method="GET" action="{{ route('orders.index') }}">
+                <div class="input-group">
+                    <select name="filter" class="form-control">
+                        <option value="">-- Filter --</option>
+                        <option value="harian" {{ request('filter') == 'harian' ? 'selected' : '' }}>Harian</option>
+                        <option value="mingguan" {{ request('filter') == 'mingguan' ? 'selected' : '' }}>Mingguan</option>
+                        <option value="bulanan" {{ request('filter') == 'bulanan' ? 'selected' : '' }}>Bulanan</option>
+                        <option value="proses" {{ request('filter') == 'proses' ? 'selected' : '' }}>Dalam Proses</option>
+                        <option value="selesai" {{ request('filter') == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit">Terapkan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="container mt-4">
-        <h1 class="mb-4">Daftar Order</h1>
+    
     
         <!-- Filter dan Search -->
         <div class="row mb-3">
             <div class="col-md-6">
                 <form method="GET" action="{{ route('orders.index') }}">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Cari nama client atau merk sepatu" value="{{ request('search') }}">
+                        {{-- <input type="text" name="search" class="form-control" placeholder="Cari nama client atau merk sepatu" value="{{ request('search') }}">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="submit">Cari</button>
                             @if(request('search'))
                             <button type="button" class="btn btn-outline-danger" onclick="clearSearch()">X</button>
                             @endif
-                        </div>
+                        </div> --}}
                     </div>
                 </form>
             </div>
-            <div class="col-md-6">
-                <form method="GET" action="{{ route('orders.index') }}">
-                    <div class="input-group">
-                        <select name="filter" class="form-control">
-                            <option value="">-- Filter --</option>
-                            <option value="harian" {{ request('filter') == 'harian' ? 'selected' : '' }}>Harian</option>
-                            <option value="mingguan" {{ request('filter') == 'mingguan' ? 'selected' : '' }}>Mingguan</option>
-                            <option value="bulanan" {{ request('filter') == 'bulanan' ? 'selected' : '' }}>Bulanan</option>
-                            <option value="proses" {{ request('filter') == 'proses' ? 'selected' : '' }}>Dalam Proses</option>
-                            <option value="selesai" {{ request('filter') == 'selesai' ? 'selected' : '' }}>Selesai</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit">Terapkan</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+           
         </div>
     
     @if (session('success'))
@@ -77,7 +77,7 @@
                 </thead>
                 <tbody>
                     @foreach ($orders as $order)
-                        <tr>
+                    <tr class="{{ request('highlight') == $order->id ? 'highlight' : '' }}">
                             <td>{{ $order->id_transaksi }}</td>
                             <td>{{ \Carbon\Carbon::parse($order->tanggal_masuk)->locale('id')->isoFormat('dddd, D-M-Y') }}</td>
                             <td>{{ $order->nama_client }}</td>
@@ -185,10 +185,7 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
 
 <script>
   let selectedOrderId = null;
@@ -224,14 +221,16 @@ $('#confirmDeleteButton').off('click').on('click', function() {
         searchInput.form.submit();
     }
     $(document).ready(function() {
-        $('#orderTable').DataTable({
-            "pagingType": "simple_numbers",
-            "lengthMenu": [10, 25, 50, 100],
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Indonesian.json"
-            }
-        });
+    $('#orderTable').DataTable({
+        "pagingType": "simple", // Enables Next and Previous buttons
+        "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]], // Adds 'All' option
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Indonesian.json" // Loads Indonesian translation
+        },
+        "pageLength": -1 // Sets the initial page length
     });
+});
+
 
     function printInvoice(orderId) {
         window.open(`/orders/${orderId}/print`, '_blank');
@@ -245,6 +244,12 @@ $('#confirmDeleteButton').off('click').on('click', function() {
         modal.find('#selesaiForm').attr('action', '/orders/' + orderId + '/selesai');
     });
 
+    $(document).ready(function() {
+    // Hapus highlight setelah 5 detik
+    setTimeout(function() {
+        $('.highlight').removeClass('highlight');
+    }, 5000); // 5 detik
+});
 
 </script>
 

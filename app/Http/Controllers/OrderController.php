@@ -112,9 +112,11 @@ class OrderController extends Controller
             'harga' => 'required|numeric',
         ]);
 
-        Order::create($request->all());
+        $order = Order::create($request->all());
 
-        return redirect()->route('orders.index')->with('success', 'Order created successfully.');
+        // Redirect ke daftar order dengan menyorot order baru
+    return redirect()->route('orders.index', ['highlight' => $order->id])
+    ->with('success', 'Order berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -142,7 +144,9 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->update($request->all());
 
-        return redirect()->route('orders.index')->with('success', 'Order updated successfully.');
+         // Redirect ke daftar order dengan menyorot order yang diedit
+               return redirect()->route('orders.index', ['highlight' => $order->id])
+                                ->with('success', 'Order berhasil diperbarui');
     }
 
     public function selesai($id)
