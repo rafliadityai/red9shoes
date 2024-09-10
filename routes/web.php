@@ -48,7 +48,9 @@ Route::middleware(['auth:admin'])->group(function () {
     
 
     // Hapus order
-    Route::delete('orders/{order_number}', [OrderController::class, 'destroy'])->name('orders.destroy');
+    Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.destroy');
+
+
 
     // Dashboard laporan
     Route::get('dashboard/daily', function () {

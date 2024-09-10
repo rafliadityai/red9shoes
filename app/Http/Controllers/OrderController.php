@@ -11,18 +11,15 @@ class OrderController extends Controller
 {
     public function index(Request $request)
 {
-    // Ambil parameter query dari URL
-    $filter = $request->query('filter');
     $search = $request->query('search');
-    $sortField = $request->query('sort', 'tanggal_masuk'); // Kolom sorting default
-    $sortOrder = $request->query('order', 'desc'); // Urutan sorting default
-    $perPage = $request->query('per_page', 99999); // Default menampilkan semua data
+    $filter = $request->query('filter');
+    $sortField = $request->query('sort', 'tanggal_masuk');
+    $sortOrder = $request->query('order', 'desc');
+    $perPage = $request->query('per_page', 99999);
 
-    // Tentukan kolom dan urutan sorting yang valid
     $validSortFields = ['id_transaksi', 'tanggal_masuk', 'keluar_sepatu', 'jenis_sepatu'];
     $validSortOrders = ['asc', 'desc'];
 
-    // Validasi input sorting field dan order
     if (!in_array($sortField, $validSortFields)) {
         $sortField = 'tanggal_masuk';
     }
@@ -31,18 +28,7 @@ class OrderController extends Controller
         $sortOrder = 'desc';
     }
 
-    // Mulai query dari model Order
     $query = Order::query();
-
-    // Terapkan filter
-    if ($filter == 'daily') {
-        $query->whereDate('tanggal_masuk', Carbon::today());
-    } elseif ($filter == 'weekly') {
-        $query->whereBetween('tanggal_masuk', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
-    } elseif ($filter == 'monthly') {
-        $query->whereMonth('tanggal_masuk', Carbon::now()->month)
-              ->whereYear('tanggal_masuk', Carbon::now()->year); // Tambahkan tahun untuk filter bulanan
-    }
 
     // Terapkan pencarian
     if ($search) {
@@ -53,19 +39,39 @@ class OrderController extends Controller
         });
     }
 
-    // Terapkan sorting
+    // Terapkan filter
+    if ($filter) {
+        switch ($filter) {
+            case 'harian':
+                $query->whereDate('tanggal_masuk', Carbon::today());
+                break;
+            case 'mingguan':
+                $query->whereBetween('tanggal_masuk', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
+                break;
+            case 'bulanan':
+                $query->whereMonth('tanggal_masuk', Carbon::now()->month);
+                break;
+            case 'proses':
+                $query->whereNull('keluar_sepatu');
+                break;
+            case 'selesai':
+                $query->whereNotNull('keluar_sepatu');
+                break;
+        }
+    }
+
     $query->orderBy($sortField, $sortOrder);
 
-    // Penanganan per_page dan pagination
     if ($perPage == 'all') {
-        $orders = $query->get(); // Mendapatkan semua data tanpa pagination
+        $orders = $query->get();
     } else {
         $orders = $query->paginate($perPage);
     }
 
-    // Return ke view dengan data yang diambil
     return view('orders.index', compact('orders', 'search', 'filter', 'sortField', 'sortOrder'));
 }
+
+    
 
 
     public function showDetail($id)
