@@ -20,6 +20,7 @@
         <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
         
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
@@ -112,7 +113,8 @@
                 <div class="row gx-4 gx-lg-5 mt-5">
                     <div class="col-lg-6 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-tools fs-1 text-primary"></i></div>
+                            <div class="mb-2"><i class="fas fa-cut fs-1 text-primary"></i></div>
+
                             <h3 class="h4 mb-2">Repair</h3>
                             <p class="text-muted mb-0">Menangani Unyellowing, Jahit Sol, hingga Repaint</p>
                         </div>
