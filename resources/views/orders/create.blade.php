@@ -47,9 +47,15 @@
             <label for="service">Service</label>
             <select name="service" id="service" class="form-control" required>
                 <option value="" selected disabled>Pilih Service</option>
-                <option value="Basic">Basic</option>
+                <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>
+                <option value="Repaint + Cuci">Repaint + Cuci</option>
+                <option value="Sol Jahit + Cuci">Sol Jahit + Cuci</option>
+                <option value="Sol Lem + Cuci">Sol Lem + Cuci</option>
+                <option value="Unyellowing">Unyellowing</option>
+                <option value="All Package">All Package</option>
+                <option value="Promo (2 get 1)">Promo (2 get 1)</option>
             </select>
         </div>
 
@@ -72,13 +78,25 @@
             const service = this.value;
             let harga = 0;
 
-            if (service === 'Basic') {
+            if (service === 'Easy') {
                 harga = 30000;
             } else if (service === 'Medium') {
                 harga = 50000;
             } else if (service === 'Hard') {
                 harga = 75000;
-            }
+            } else if (service === 'Repaint + Cuci') {
+                harga = 225000;
+            } else if (service === 'Sol Jahit + Cuci') {
+                harga = 150000;
+            } else if (service === 'Sol Lem + Cuci') {
+                harga = 125000;
+            } else if (service === 'Unyellowing') {
+                harga = 180000;
+            } else if (service === 'All Package') {
+                harga = 300000;
+            } else if (service === 'Promo (2 get 1)') {
+                harga = 150000;
+            } 
 
             hargaInput.value = harga;
         });

@@ -6,8 +6,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Red9 Shoes Laundry</title>
+        <link rel="icon" href="/assets/img/icon.png" type="image/png">
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        {{-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 

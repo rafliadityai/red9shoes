@@ -43,9 +43,15 @@
             <label for="service">Service</label>
             <select name="service" id="service" class="form-control" required>
                 <option value="" disabled>Pilih Service</option>
-                <option value="Basic" {{ old('service', $order->service) == 'Basic' ? 'selected' : '' }}>Basic</option>
+                <option value="Easy" {{ old('service', $order->service) == 'Easy' ? 'selected' : '' }}>Easy</option>
                 <option value="Medium" {{ old('service', $order->service) == 'Medium' ? 'selected' : '' }}>Medium</option>
                 <option value="Hard" {{ old('service', $order->service) == 'Hard' ? 'selected' : '' }}>Hard</option>
+                <option value="Basic" {{ old('service', $order->service) == 'Repaint + Cuci' ? 'selected' : '' }}>Repaint + Cuci</option>
+                <option value="Medium" {{ old('service', $order->service) == 'Sol Jahit + Cuci' ? 'selected' : '' }}>Sol Jahit + Cuci</option>
+                <option value="Hard" {{ old('service', $order->service) == 'Sol Lem + Cuci' ? 'selected' : '' }}>Sol Lem + Cuci</option>
+                <option value="Hard" {{ old('service', $order->service) == 'Unyellowing' ? 'selected' : '' }}>Unyellowing</option>
+                <option value="Basic" {{ old('service', $order->service) == 'All Package' ? 'selected' : '' }}>All Package</option>
+                <option value="Medium" {{ old('service', $order->service) == 'Promo (2 get 1)' ? 'selected' : '' }}>Promo (2 get 1)</option>
             </select>
         </div>
         <div class="form-group">
@@ -71,13 +77,25 @@
             const service = this.value;
             let harga = 0;
 
-            if (service === 'Basic') {
+            if (service === 'Easy') {
                 harga = 30000;
             } else if (service === 'Medium') {
                 harga = 50000;
             } else if (service === 'Hard') {
                 harga = 75000;
-            }
+            } else if (service === 'Repaint + Cuci') {
+                harga = 225000;
+            } else if (service === 'Sol Jahit + Cuci') {
+                harga = 150000;
+            } else if (service === 'Sol Lem + Cuci') {
+                harga = 125000;
+            } else if (service === 'Unyellowing') {
+                harga = 180000;
+            } else if (service === 'All Package') {
+                harga = 300000;
+            } else if (service === 'Promo (2 get 1)') {
+                harga = 150000;
+            } 
 
             hargaInput.value = harga;
         });
