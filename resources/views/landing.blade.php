@@ -130,9 +130,9 @@
                     <div class="col-lg-8 text-center mb-5 mb-lg-0">
                         <div class="d-flex justify-content-center">
                             <div class="text-center me-4">
-                                <a href="https://wa.me/087779275999" target="_blank" class="text-decoration-none">
+                                <a href="https://wa.me/+6287779275999" target="_blank" class="text-decoration-none">
                                     <i class="bi-whatsapp fs-2 text-muted"></i>
-                                    <div>0877-7927-5999</div>
+                                    <div>+62-877-7927-5999</div>
                                 </a>
                             </div>
                             <div class="text-center me-4">
