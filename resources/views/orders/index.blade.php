@@ -99,7 +99,8 @@
                                     <button type="button" class="btn btn-info btn-icon" onclick="printInvoice('{{ $order->id }}')" title="Print Struk">
                                         Print
                                     </button>
-
+                                    
+                                    
                                     <!-- Tombol untuk Menandai Selesai (jika belum selesai) -->
                                     @if (!$order->keluar_sepatu)
                                     <form action="{{ route('orders.selesai', $order->id) }}" method="POST" style="display:inline;">

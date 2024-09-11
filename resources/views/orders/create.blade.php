@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
+    <a href="{{ route('orders.index') }}" class="btn btn-secondary mb-3">Kembali ke Daftar Order</a>
     <h1>Tambah Order Baru</h1>
 
     <form action="{{ route('orders.store') }}" method="POST">

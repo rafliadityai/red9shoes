@@ -34,6 +34,7 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                         <li class="nav-item"> <a class="nav-link" href="{{ route('login') }}">Admin Login</a></li>
                     </ul>
                 </div>
@@ -115,6 +116,47 @@
                 </div>
             </div>
         </section>
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center">
+                        <h2 class="mt-0">Let's Get In Touch!</h2>
+                        <hr class="divider" />
+                        <p class="text-muted mb-5">Ready to start your next project with us? Send us a message and we will get back to you as soon as possible!</p>
+                    </div>
+                </div>
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center mb-5 mb-lg-0">
+                        <div class="d-flex justify-content-center">
+                            <div class="text-center me-4">
+                                <a href="https://wa.me/087779275999" target="_blank" class="text-decoration-none">
+                                    <i class="bi-whatsapp fs-2 text-muted"></i>
+                                    <div>0877-7927-5999</div>
+                                </a>
+                            </div>
+                            <div class="text-center me-4">
+                                <a href="https://instagram.com/red9shoeslaundry" target="_blank" class="text-decoration-none">
+                                    <i class="bi-instagram fs-2 text-muted"></i>
+                                    <div>@red9shoeslaundry</div>
+                                </a>
+                            </div>
+                            {{-- <div class="text-center">
+                                <a href="https://www.tiktok.com/@red9shoeslaundry" target="_blank" class="text-decoration-none">
+                                    <i class="bi-tiktok fs-2 text-muted"></i>
+                                    <div>@red9shoeslaundry</div>
+                                </a>
+                            </div> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        
+        
         <!-- Portfolio-->
         <!-- <div id="portfolio">
             <div class="container-fluid p-0">

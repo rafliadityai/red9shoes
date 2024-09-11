@@ -9,10 +9,10 @@
             <td colspan="2" align="center"><b>RED 9 SHOES LAUNDRY</b></td>
         </tr>
         <tr>
-            <td colspan="2" align="center">Jl. Contoh Alamat No. 123, Kota, 12345</td>
+            <td colspan="2" align="center"> Jl. Jalaprang No.93, Sukaluyu, Kec. Cibeunying Kaler, Kota Bandung</td>
         </tr>
         <tr>
-            <td colspan="2" align="center"><b>Contact:</b> +62 812-3456-7890</td>
+            <td colspan="2" align="center"><b>Contact:</b>087779275999</td>
         </tr>
         <tr>
             <td><b>Nama Client:</b> {{ $order->nama_client }}</td>

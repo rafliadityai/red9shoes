@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <a href="{{ route('orders.index') }}" class="btn btn-secondary mb-3">Kembali ke Daftar Order</a>
     <h1>Edit Order</h1>
 
     <form action="{{ route('orders.update', $order->id) }}" method="POST">

@@ -26,7 +26,7 @@
                 @auth('admin')
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Welcome, {{ auth('admin')->user()->username }}
+                        {{ auth('admin')->user()->username }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <form action="{{ route('admin.logout') }}" method="POST">

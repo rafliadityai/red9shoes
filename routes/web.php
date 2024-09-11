@@ -40,7 +40,11 @@ Route::middleware(['auth:admin'])->group(function () {
 
     // Tandai order sebagai selesai
     Route::patch('orders/{id}/selesai', [OrderController::class, 'selesai'])->name('orders.selesai');
+
+    //invoice
     Route::get('orders/{id}/print', [OrderController::class, 'print'])->name('orders.print');
+  
+
 
     Route::get('orders/excel', function () {
         return Excel::download(new OrdersExport, 'orders.xlsx');
