@@ -65,7 +65,7 @@
                         <p class="text-white-75 mb-4"> <b>Bahan Pembersih Aman:</b> Produk pembersih khusus yang tidak merusak bahan sepatu.</p>
                         <p class="text-white-75 mb-4"> <b>Teknisi Berpengalaman:</b> Ahli perawatan sepatu dengan pengalaman bertahun-tahun.</p>
                         <p class="text-white-75 mb-4"><b>Hasil Maksimal:</b> Garansi sepatu bersih, wangi, dan tampak seperti baru</p>
-                        <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
+                        <a class="btn btn-light btn-xl" href="#services">Layanan Kami!</a>
                     </div>
                 </div>
             </div>
@@ -75,46 +75,57 @@
             <div class="container px-4 px-lg-5">
                 <h2 class="text-center mt-0">SERVICES</h2>
                 <hr class="divider" />
+            
+                <!-- Baris pertama dengan 3 kolom -->
                 <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-3 col-md-6 text-center">
+                    <div class="col-lg-4 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2">
                                 <img src="{{ asset('assets/img/shoes.svg') }}" alt="Basic Level Shoes" class="img-fluid level-basic" style="width: 55px; height: 55px;">
-                              </div>
-                                                                                   
+                            </div>
                             <h3 class="h4 mb-2">Easy</h3>
-                            <p class="text-muted mb-0"> Pembersihan menyeluruh bagian luar dan dalam sepatu.</p>
-                            <p></p>
-                          <p class="text-muted mb-0">Menggunakan bahan pembersih ramah lingkungan yang aman untuk semua jenis bahan.</p>  
+                            <p class="text-muted mb-0">Sepatu anak-anak, ukuran maksimal EU 32</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
+                    <div class="col-lg-4 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2">
                                 <img src="{{ asset('assets/img/shoes.svg') }}" alt="Medium Level Shoes" class="img-fluid level-medium" style="width: 55px; height: 55px;">
                             </div>
                             <h3 class="h4 mb-2">Medium</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                            <p class="text-muted mb-0">Berdasarkan bahan sepatu dan tingkat kekotoran</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
+                    <div class="col-lg-4 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2">
                                 <img src="{{ asset('assets/img/shoes.svg') }}" alt="Hard Level Shoes" class="img-fluid level-hard" style="width: 55px; height: 55px;">
                             </div>
                             <h3 class="h4 mb-2">Hard</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                            <p class="text-muted mb-0">Mengatasi kotoran berat seperti lumpur basah atau kehujanan</p>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 text-center">
+                </div>
+            
+                <!-- Baris kedua dengan 2 kolom -->
+                <div class="row gx-4 gx-lg-5 mt-5">
+                    <div class="col-lg-6 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="bi-tools fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Repair</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                            <p class="text-muted mb-0">Menangani Unyellowing, Jahit Sol, hingga Repaint</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 text-center">
+                        <div class="mt-5">
+                            <div class="mb-2"><i class="bi-truck fs-1 text-primary"></i></div>
+                            <h3 class="h4 mb-2">Delivery</h3>
+                            <p class="text-muted mb-0">Kami melayani jasa Delivery Maksimal 3KM</p>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </section>
         <!-- Contact-->
         <section class="page-section" id="contact">
@@ -123,7 +134,7 @@
                     <div class="col-lg-8 col-xl-6 text-center">
                         <h2 class="mt-0">Let's Get In Touch!</h2>
                         <hr class="divider" />
-                        <p class="text-muted mb-5">Ready to start your next project with us? Send us a message and we will get back to you as soon as possible!</p>
+                        <p class="text-muted mb-5">Lebih dekat dengan kami melalui konta di bawah ini</p>
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
