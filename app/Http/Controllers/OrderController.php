@@ -86,11 +86,17 @@ class OrderController extends Controller
     }
     
     public function print($id)
-    {
-        $order = Order::findOrFail($id);
-        $pdf = Pdf::loadView('orders.invoice', compact('order'));
-        return $pdf->stream('struk.pdf');
-    }
+{
+    $order = Order::findOrFail($id);
+
+    // Load view and configure paper size
+    $pdf = PDF::loadView('orders.invoice', compact('order'));
+
+    // Set paper size to 80mm width and auto height
+    $pdf->setPaper([0, 0, 217, 999], 'portrait'); // 80mm width, 999mm height (auto)
+
+    return $pdf->stream('struk.pdf');
+}
 
     public function create()
     {

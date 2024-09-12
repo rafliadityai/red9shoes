@@ -114,7 +114,6 @@
                     <div class="col-lg-6 col-md-6 text-center">
                         <div class="mt-5">
                             <div class="mb-2"><i class="fas fa-cut fs-1 text-primary"></i></div>
-
                             <h3 class="h4 mb-2">Repair</h3>
                             <p class="text-muted mb-0">Menangani Unyellowing, Jahit Sol, hingga Repaint</p>
                         </div>
